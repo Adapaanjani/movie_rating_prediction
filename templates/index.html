@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Movie Rating Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Rating Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="user_id">User ID:</label>
+            <input type="text" id="user_id" name="user_id" required>
+            <br>
+            <label for="movie_id">Movie ID:</label>
+            <input type="text" id="movie_id" name="movie_id" required>
+            <br>
+            <h3>Select Genres:</h3>
+            <label><input type="checkbox" name="Action"> Action</label>
+            <label><input type="checkbox" name="Adventure"> Adventure</label>
+            <label><input type="checkbox" name="Animation"> Animation</label>
+            <label><input type="checkbox" name="Children"> Children</label>
+            <label><input type="checkbox" name="Comedy"> Comedy</label>
+            <label><input type="checkbox" name="Crime"> Crime</label>
+            <label><input type="checkbox" name="Documentary"> Documentary</label>
+            <label><input type="checkbox" name="Drama"> Drama</label>
+            <label><input type="checkbox" name="Fantasy"> Fantasy</label>
+            <label><input type="checkbox" name="Film-Noir"> Film-Noir</label>
+            <label><input type="checkbox" name="Horror"> Horror</label>
+            <label><input type="checkbox" name="Musical"> Musical</label>
+            <label><input type="checkbox" name="Mystery"> Mystery</label>
+            <label><input type="checkbox" name="Romance"> Romance</label>
+            <label><input type="checkbox" name="Sci-Fi"> Sci-Fi</label>
+            <label><input type="checkbox" name="Thriller"> Thriller</label>
+            <label><input type="checkbox" name="War"> War</label>
+            <label><input type="checkbox" name="Western"> Western</label>
+            <br>
+            <button type="submit">Predict Rating</button>
+        </form>
+        {% if prediction is not none %}
+            <h2>Predicted Rating: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
